@@ -1,0 +1,251 @@
+.slideBarSection
+{
+    flex: .3;
+    max-height: 100vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.slideBarSection::-webkit-scrollbar
+{
+    display:none;
+}
+.slideBarSection::-webkit-scrollbar-track
+{
+    display:none;
+}
+.slideBarIconsContainer
+{
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+    padding: .5rem 0;
+    padding-inline-start:.7rem;
+    padding-inline-end:1.4rem ;
+    cursor: pointer;
+    margin-bottom: .5rem;
+}
+.slideBarIconsContainer:hover,.slideBarProfile:hover
+{
+    border-radius: 50px;
+    background-color: rgba(0,0,0,0.1);
+}
+.slideBarIconsBtn
+{
+    background-color: rgb(29, 155, 240);
+    border-radius: 40px;
+    padding:1rem 0;
+    width: 80%;
+    color: #fff;
+    font: bold .86rem sans-serif;
+    margin-top: 1rem;
+}
+
+.slideBarIconsBtnMob
+{
+    background-color: rgb(29, 155, 240);
+    border-radius: 50%;
+    fill: #fff;
+    width: 50px;
+    padding: .7rem;
+    display: none;
+}
+
+.slideBarProfile
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: .5rem 0;
+    padding-inline-start:.7rem;
+    padding-inline-end:1.4rem ;
+    cursor: pointer;
+    max-width: 95%;
+    position: relative;
+}
+.signOutBtnContainer
+{
+    background-color: rgb(29, 155, 240);
+    position: fixed;
+    color: #fff;
+    top: calc(100% - 7rem);
+    z-index: 10;
+    max-width: 100px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 100%;
+    clip-path: polygon(0% -20%, 100% 0%, 100% 90%, 56% 90%, 52% 100%, 48% 90%, 0% 90%);
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+.signOutBtnContainer > button
+{
+    font : 600 .75rem sans-serif;
+    text-transform: capitalize;
+    letter-spacing: .05rem;
+}
+.slideBarProfile > img
+{
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+}
+.slideBarProfile > h4
+{
+    flex: 1;
+    margin-inline-start: .5rem;
+    text-transform:lowercase;
+    font: 600 .8rem sans-serif;
+    color: #0f1419;
+}
+
+.slideBarProfile > span
+{
+    display: inline-block;
+    width: 3px;
+    border-radius: 50%;
+    height: 3px;
+    background-color: #0f1419;
+    position: relative;
+    margin-inline-end: 1rem;
+}
+.iconSliderSpan
+{
+    font: 500 1.05rem sans-serif;
+    letter-spacing: .05rem;
+}
+.iconSliderSpan.active
+{
+    font-weight: bold;
+}
+.iconSlide
+{
+    width: 70px;
+    height: 49px;
+    padding: .5rem 0;
+    padding-inline-start:.7rem;
+    padding-inline-end:1.4rem ;
+    margin-top: .5rem;
+}
+.iconSlideBar
+{
+    width: 22px;
+    height: 22px;
+    margin-inline-end: 1rem;
+}
+.slideBarProfile > span::after,.slideBarProfile > span::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    background-color: #0f1419;
+    top: 0;
+}
+.slideBarProfile > span::after
+{
+    left: 5px;
+}
+.slideBarProfile > span::before
+{
+    right:5px;
+}
+
+@media only screen and (max-width:1200px) 
+{
+    .slideBarSection
+    {
+        flex:.1;
+    }
+    .slideBarProfile > h4 ,.iconSliderSpan,.slideBarProfile > span,.slideBarIconsBtn,.slideBarIconsBtn
+
+    {
+        display: none;
+    }
+    .slideBarIconsBtnMob
+    {
+        display: inline-block;
+    }
+    .slideBarProfile
+    {
+        padding: 0;
+        padding-inline-start:0;
+        padding-inline-end:0 ;
+        max-width: fit-content;
+    }
+}
+@media only screen and (max-width:950px) 
+{
+    .slideBarSection
+    {
+        flex:.14;
+    }
+}
+@media only screen and (max-width:668px) 
+{
+    .slideBarSection
+    {
+        flex:.18;
+    }
+}
+@media only screen and (max-width:520px) 
+{
+    .slideBarIconsWrapper
+    {
+        display: flex;
+        position: fixed;
+        height: fit-content;
+        background: #fff;
+        bottom: 0px;
+        left: 0px;
+        justify-content: space-around;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        align-items: center;
+        width: 100vw;
+        z-index: 10000;
+    }
+    .slideBarIconsContainer:nth-of-type(2),.slideBarIconsContainer:nth-of-type(4),.slideBarIconsContainer:nth-of-type(5)
+    ,.slideBarIconsContainer:last-of-type,.iconSlide
+    {
+        display: none;
+    }
+    .slideBarSection
+    {
+        border-inline-end: none;
+        min-height: auto;
+    }
+    .slideBarIconsBtnMob
+    {
+        position: fixed;
+        bottom: 79px;
+        right: 0px;
+        margin-inline-end: 2rem;
+    }
+    .slideBarIconsContainer
+    {
+        padding: 0;
+    }
+    .iconSlideBar{
+        margin: 0;
+    }
+    .slideBarProfile > img {
+        height: 31px;
+        width: 31px;
+    }
+    .slideBarProfile
+    {
+        margin-bottom: .5rem;
+        margin-top: 1rem;
+    }
+    .signOutBtnContainer
+    {
+        clip-path: polygon(0 100%, 0 16%, 42% 15%, 54% 5%, 69% 15%, 100% 17%, 100% 100%);
+        top: 45px;
+
+    }
+}

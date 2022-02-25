@@ -1,0 +1,13 @@
+main
+{
+    display: flex;
+    padding: 0 4.5%;
+}
+
+@media only screen and (max-width:520px) 
+{
+    main
+    {
+        flex-direction: column;
+    }
+}

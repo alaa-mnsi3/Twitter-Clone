@@ -1,0 +1,83 @@
+.InterfaceContainer
+{
+    @apply flex sm:flex-col-reverse md:flex-row ;
+    min-height: 100vh;
+    position: relative;
+}
+.bg-Interface
+{
+    @apply md:w-64 justify-center items-center flex;
+    background-image: url('../../Images/background.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: 30%;
+    flex:.55;
+}
+.bg-Interface-Brand
+{
+    width:50%;
+}
+.SignContainer
+{
+    @apply m-8;
+    flex: .45;
+}
+
+.signBtn
+{
+    @apply flex border-solid border rounded-3xl items-center justify-center py-2 mb-2 cursor-pointer text-secondary-200;
+}
+
+.textSignBtn
+{
+    @apply text-sm ml-2 font-medium tracking-wider;
+}
+
+.Brand-Img
+{
+    @apply w-10;
+}
+.TwitterHeading
+{
+    @apply sm:text-5xl md:text-7xl font-familyPrimary font-bold my-12;
+}
+.Twitter-SecondHeading
+{
+    @apply text-3xl font-bold mb-8;
+}
+.SignWrapper
+{
+    width:55%;
+    @apply 2xl:w-64;
+}
+.signIcon
+{
+    @apply w-5;
+}
+
+@media only screen and (max-width:640px) 
+{
+    .TwitterHeading
+    {
+        @apply text-5xl;
+    }
+    .InterfaceContainer
+    {
+        @apply flex-col-reverse;
+    }
+    .SignWrapper
+    {
+        width:60%
+    }
+    .SignContainer
+    {
+        @apply flex-1
+    }
+}
+@media only screen and (max-width:500px) 
+{
+    .SignWrapper
+    {
+        width:100%
+    }
+}
