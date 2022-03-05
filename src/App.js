@@ -1,10 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { BrowserRouter ,Routes,Route} from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Interface from "./Pages/Interface Page/InterfaceView";
 
 function App() 
 {
+  const id=useSelector(state=> state.userIdSlice)
   return (
     <BrowserRouter>
       <div className="App">
@@ -12,7 +14,9 @@ function App()
         <Routes>
           <Route  path='/' element={<Interface/>}/>
         </Routes>
+        {id &&
         <Home/>
+        }
       </div>
     </BrowserRouter>  
   );
