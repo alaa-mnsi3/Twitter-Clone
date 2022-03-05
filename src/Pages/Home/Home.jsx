@@ -21,7 +21,7 @@ function Home()
 
         {/* the second part */}
         <Routes>
-          <Route exact  path='/Home' element={<Feed userInfo={userInfo}/>}/>
+          <Route path='/Home' element={<Feed userInfo={userInfo}/>}/>
           <Route path='/Profile' element={<Profile userInfo={userInfo}/>}/>
           <Route path='/tweets/:id' element={<TweetDisc userInfo={userInfo}/>}/>
         </Routes>
