@@ -42,7 +42,7 @@ function SignUpWithGoogleContainer(user)
         {
             console.error("Error adding document: ", err.message);
         }
-        Navigate('/Twitter-Clone/Home');
+        Navigate('/Home');
     }
 
     return {setDateBirth,setLanguage,handleSubmitSignUp,dateBirth}

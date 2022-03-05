@@ -11,11 +11,13 @@ function App()
     <BrowserRouter>
       <div className="App">
         <iframe width="0px" title='music for twitter' height="0px" type="text/html" frameBorder='0' src="http://www.youtuberepeater.com/watch?v=7wtfhZwyrcc&name=Imagine+Dragons+Believer?autoplay=1#gsc.tab=0&origin=http://localhost:3000" allowFullScreen allow='acceleromete; autoplay; encrypted-media; gyroscope;'></iframe>
-        {id?
-          <Home/>:
-        <Routes>
-          <Route  path='/Twitter-Clone/' element={<Interface/>}/>
-        </Routes>
+        {/* if user is founded */}
+        {id ?
+          <Home/>
+        :
+          <Routes>
+            <Route  path='/' element={<Interface/>}/>
+          </Routes>
         }
       </div>
     </BrowserRouter>  
