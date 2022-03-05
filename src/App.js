@@ -7,7 +7,6 @@ import Interface from "./Pages/Interface Page/InterfaceView";
 function App() 
 {
   const id=useSelector(state=>state.userIdSlice)
-  localStorage.clear()
   return (
     <BrowserRouter>
       <div className="App">
@@ -15,7 +14,7 @@ function App()
         {id?
           <Home/>:
         <Routes>
-          <Route  path='/' element={<Interface/>}/>
+          <Route  path='/Twitter-Clone/' element={<Interface/>}/>
         </Routes>
         }
       </div>
