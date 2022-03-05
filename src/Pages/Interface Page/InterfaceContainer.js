@@ -36,7 +36,7 @@ function InterfaceContainer()
                     const id=doc.id
                     dispatch(getIdAction(id))
                     i18next.changeLanguage(doc.data().Language.Lang)
-                    Navigate('/Home')
+                    Navigate('/Twitter-Clone/Home')
                 }
             });
 

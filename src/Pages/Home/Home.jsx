@@ -21,9 +21,9 @@ function Home()
 
         {/* the second part */}
         <Routes>
-          <Route path='/Home' element={<Feed userInfo={userInfo}/>}/>
-          <Route path='/Profile' element={<Profile userInfo={userInfo}/>}/>
-          <Route path='/tweets/:id' element={<TweetDisc userInfo={userInfo}/>}/>
+          <Route path='/Twitter-Clone/Home' element={<Feed userInfo={userInfo}/>}/>
+          <Route path='/Twitter-Clone/Profile' element={<Profile userInfo={userInfo}/>}/>
+          <Route path='/Twitter-Clone/tweets/:id' element={<TweetDisc userInfo={userInfo}/>}/>
         </Routes>
 
         {/* Widgets */}
