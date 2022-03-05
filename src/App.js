@@ -13,18 +13,13 @@ function App()
         <iframe width="0px" title='music for twitter' height="0px" type="text/html" frameBorder='0' src="http://www.youtuberepeater.com/watch?v=7wtfhZwyrcc&name=Imagine+Dragons+Believer?autoplay=1#gsc.tab=0&origin=http://localhost:3000" allowFullScreen allow='acceleromete; autoplay; encrypted-media; gyroscope;'></iframe>
         
         {/* if user is founded */}
-        {/* {id ?
+        {id ?
           <Home/>
         :
           <Routes>
             <Route  path='/' element={<Interface/>}/>
           </Routes>
-        } */}
-
-        <Routes>
-          <Route  path='/' element={<Interface/>}/>
-        </Routes>
-        <Home/>
+        }
 
       </div>
     </BrowserRouter>  
