@@ -15,8 +15,9 @@ import { getIdAction } from '../../store/Slices/getUserIdSlice';
 import {useDispatch} from 'react-redux'
 
 // for complete SignUpWithGoogle that specify language and birthday
-function SignUpWithGoogleContainer({user}) 
+function SignUpWithGoogleContainer(user) 
 {
+    console.log(user)
     const [dateBirth,setDateBirth] = useState('')
     const [Language,setLanguage] = useState('')
     const Navigate=useNavigate()
@@ -28,9 +29,13 @@ function SignUpWithGoogleContainer({user})
         e.preventDefault()
         try 
         {
-            const docRef = await addDoc(collection(db, "users"), {...user,dateBirth,Language,createdAccountAt:serverTimestamp()});
-            i18next.changeLanguage(Language.Lang)
+            const username=user.username;
+            const userEmail=user.userEmail;
+            const userPhoto=user.userPhoto;
+            const docRef = await addDoc(collection(db, "users"),{username,userPhoto,userEmail,dateBirth,Language,createdAccountAt:serverTimestamp()});
             const id= docRef.id;
+            i18next.changeLanguage(Language.Lang);
+            console.log(id)
             dispatch(getIdAction(id));
         }
          catch (err) 

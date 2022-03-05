@@ -2,12 +2,12 @@ import React from 'react'
 import LikedComp from './LikedComp'
 import ReplyComp from './ReplyComp'
 
-function TweetFooter({tweet,setClickReplyId,handleLikedTweet,handleRemoveLiked,Id}) 
+function TweetFooter({tweet,handleReplyTweet,handleLikedTweet,handleRemoveLiked,Id}) 
 {
   return (
     <div className="footer__Tweeting">
         {/* Reply */}
-        <ReplyComp Reply={tweet?.Reply} setClickReplyId={setClickReplyId} Id={Id}/>
+        <ReplyComp Reply={tweet?.Reply} handleReplyTweet={handleReplyTweet} Id={Id}/>
 
         {/* Liked */}
         <LikedComp

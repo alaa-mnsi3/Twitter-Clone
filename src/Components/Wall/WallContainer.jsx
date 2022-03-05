@@ -1,21 +1,24 @@
 import { useState,useEffect }  from 'react'
 import { collection, onSnapshot,query, orderBy, doc, updateDoc, arrayRemove } from "firebase/firestore"; 
 import { db } from '../../Firebase';
+import {useDispatch} from 'react-redux'
+import { getReplyIDAction } from '../../store/Slices/IdReplySlice'
 
 function WallContainer(userInfo) 
 {
     const [TweetsWall,setTweetsWall]=useState()
     const [clickReplyId,setClickReplyId]=useState("")
-    
+    const dispatch=useDispatch()
+
     // for order Tweets and listening for any changes
     useEffect(() =>
     {
-        onSnapshot(
-          query(collection(db, "tweets"), orderBy("timeStamp", "desc")),
-          (snapshot) => {
-            setTweetsWall(snapshot.docs);
-          }
-        )
+      onSnapshot(
+        query(collection(db, "tweets"), orderBy("timeStamp", "desc")),
+        (snapshot) => {
+          setTweetsWall(snapshot.docs);
+        }
+      )
     },[db])
 
     // Function for Liking post
@@ -38,7 +41,13 @@ function WallContainer(userInfo)
       });
     }
 
-    return {handleRemoveLiked,handleLikedTweet,clickReplyId,TweetsWall,setClickReplyId}
+    // for replying
+    const handleReplyTweet=(Id,replyCount)=>
+    {
+      setClickReplyId(Id);
+      dispatch(getReplyIDAction({Id,replyCount}));
+    }
+    return {handleRemoveLiked,handleLikedTweet,clickReplyId,TweetsWall,handleReplyTweet}
 }
 
 export default WallContainer

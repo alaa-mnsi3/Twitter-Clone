@@ -5,7 +5,7 @@ import Tweet from './Tweet';
 
 function Wall({userInfo}) 
 {
-  const {clickReplyId,TweetsWall,setClickReplyId}=WallContainer(userInfo)
+  const {clickReplyId,TweetsWall,handleReplyTweet}=WallContainer(userInfo)
 
   return (
     // Tweets
@@ -13,7 +13,8 @@ function Wall({userInfo})
       {/* Tweet */}
       {TweetsWall?.map(tweet => 
         (
-          <Tweet key={tweet.id} tweetInfo={tweet} userInfo={userInfo} setClickReplyId={setClickReplyId} clickReplyId={clickReplyId}/>
+          <Tweet key={tweet.id} tweetInfo={tweet} 
+          userInfo={userInfo} handleReplyTweet={handleReplyTweet} clickReplyId={clickReplyId}/>
         )
       )}
     </div>

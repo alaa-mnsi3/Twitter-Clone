@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react'
+import {useLayoutEffect,useState} from 'react'
 import {useSelector} from 'react-redux'
 import { collection,getDocs } from "firebase/firestore"; 
 import {db} from "../../Firebase"
@@ -17,21 +17,21 @@ function HomeContainer()
       const querySnapshot =await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => 
       {
+        console.log(doc.id,id)
         if(doc.id === id)
         {
-            setUserInfo(doc.data())
-            document.body.dir = doc?.data().Language.dir || 'ltr'
-            document.title = t('title')
+          setUserInfo(doc.data())
+          document.body.dir = doc.data()?.Language?.dir
         }
       });
+
     }
-    useEffect(()=>
+    useLayoutEffect(()=>
     {
-        if(!userInfo)
-        {
-            getInfUser();
-        }
-    },[userInfo])
+        getInfUser();
+        document.title = t('title')
+
+    },[t])
 
     return {userInfo}
 }

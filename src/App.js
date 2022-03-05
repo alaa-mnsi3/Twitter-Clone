@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter ,Routes,Route} from "react-router-dom";
-import TweetDisc from './Components/TweetDisc/TweetDisc';
 import Home from "./Pages/Home/Home";
 import Interface from "./Pages/Interface Page/InterfaceView";
 

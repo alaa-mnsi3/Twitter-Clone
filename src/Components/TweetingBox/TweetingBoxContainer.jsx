@@ -1,61 +1,115 @@
-import React,{useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import { db } from '../../Firebase';
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
+import { collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore"; 
+import {useDispatch, useSelector} from 'react-redux'
+import { getReplyIDAction } from '../../store/Slices/IdReplySlice'
 
-function TweetingBoxContainer({userInfo})
+function TweetingBoxContainer(userInfo,ReplyTweeting)
 {
-    const [tweet,setTweet]=useState("");
-    const [heightTextarea,setHightTextarea]=useState('100')
-    const [emojiPicker,setEmojiPicker]=useState(false)
-    const [chosenEmoji, setChosenEmoji] = useState(null);
-  
-    const [imageTweet,setImageTweet]=useState([])
-    const onEmojiClick = (event, emojiObject) => {
-      setChosenEmoji(emojiObject);
-    };
-  
-    useEffect(()=>
+  const dispatch=useDispatch()
+  const [tweet,setTweet]=useState("");
+  const [Reply,setReply]=useState("")
+  const [heightTextarea,setHightTextarea]=useState('100')
+  const [emojiPicker,setEmojiPicker]=useState(false)
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+
+  const {id,replyCount}=useSelector(state=> state.IdReplySlice)
+  const userId = useSelector(state => state.userIdSlice)
+
+  const [imageTweet,setImageTweet]=useState([])
+
+  // set Emoji to tweet 
+  const onEmojiClick = (event, emojiObject) => 
+  {
+    setChosenEmoji(emojiObject);
+  };
+
+  // for adding Emoji to tweet or reply
+  useEffect(()=>
+  {
+    if(chosenEmoji)
     {
-      if(chosenEmoji)
+      if(ReplyTweeting)
+      {
+        setReply(prev => {return prev + chosenEmoji?.emoji})
+
+      }
+      else
       {
         setTweet(prev => {return prev + chosenEmoji?.emoji})
-      }
-    },[chosenEmoji])
-  
-    const onTweet=async(e)=>
-    {
-      e.preventDefault();
-      try {
-        const docRef = await addDoc(collection(db, "tweets"), {username:userInfo.username,userPhoto:userInfo.userPhoto,
-        timeStamp:serverTimestamp(),tweet,imageTweet,liked:[],Reply:[]});
-        console.log("Document written with ID: ", docRef.id);
-        setTweet('')
-        setImageTweet([])
-      } catch (e) {
-        console.error("Error adding document: ", e);
+
       }
     }
-    const onReply=async(id,Reply)=>
-    {
-        const washingtonRef = doc(db, "tweets", id);
-        // Set the "capital" field of the city 'DC'
-        await updateDoc(washingtonRef, {
-          Reply:[...Reply,userInfo.username,userInfo.userPhoto,tweet]
-        });
+  },[chosenEmoji,ReplyTweeting])
+
+  // for Tweeting tweets
+  const onTweet=async(e)=>
+  {
+    try {
+      await addDoc(collection(db, "tweets"), 
+      {username:userInfo.username,userPhoto:userInfo.userPhoto,timeStamp:serverTimestamp(),
+      tweet,imageTweet,liked:[],Reply:0});
+
+      setTweet('');
+      setImageTweet([]);
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
-    const handleImagesTweeting=(e)=>
+  }
+
+  // for tweeting Replies
+  const onReply=async()=>
+  {
+    // for adding replies in firebase replies
+    try {
+      await addDoc(collection(db, "Replies"),{username:userInfo.username,
+      userPhoto:userInfo.userPhoto,userId:userId,tweet:Reply,tweetId:id,timeStamp:serverTimestamp()});
+    } 
+    catch(e)
     {
-      const files=e.target.files;
-      console.log(files)
-      let fileReader=new FileReader();
-      fileReader.readAsDataURL(files[0])
-      fileReader.onload=(e)=>
-      {
-        setImageTweet(prev=>[...prev,e.target.result])
-      }
+      console.error("Error adding document: ", e);
     }
 
-    return  {handleImagesTweeting,setEmojiPicker,emojiPicker,onEmojiClick,tweet,imageTweet,onReply,onTweet}
+    // for updating number of replies
+    const washingtonRef = doc(db, "tweets", id);
+    await updateDoc(washingtonRef, {
+      Reply:(replyCount)
+    });
+
+    // for number of replies
+    dispatch(getReplyIDAction({Id:id,replyCount}));
+
+    setReply("")
+  }
+
+  // set images to tweets or replies
+  const handleImagesTweeting=(e)=>
+  {
+    console.error("Error adding document: ", e);
+
+    const files=e.target.files;
+    let fileReader=new FileReader();
+    fileReader.readAsDataURL(files[0])
+    fileReader.onload=(e)=>
+    {
+      setImageTweet(prev=>[...prev,e.target.result])    
+    }
+  }
+
+  // for textarea
+  const handleOnChange=(e)=>
+  {
+    if(ReplyTweeting)
+    {
+      setReply(e.target.value)
+    }
+    else
+    {
+      setTweet(e.target.value)
+    }
+  }
+
+    return  {handleImagesTweeting,setEmojiPicker,emojiPicker,Reply,handleOnChange,onEmojiClick,tweet,imageTweet,onReply,onTweet,heightTextarea,setHightTextarea}
 }
 
 export default TweetingBoxContainer

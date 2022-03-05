@@ -17,6 +17,11 @@
     cursor: pointer;
     transition: background-color 300ms ease-in-out;
 }
+.wallWrapper.replies
+{
+    margin-inline-start: 1.5rem;
+    border-bottom: none;
+}
 .wallWrapper:hover
 {
     background-color: rgba(83, 100, 113,.1);

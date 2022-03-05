@@ -1,5 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
 import userIdSlice from './Slices/getUserIdSlice'
+import IdReplySlice from './Slices/IdReplySlice';
 import { persistStore  , persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 import {combineReducers} from 'redux';
@@ -11,6 +12,7 @@ const persistConfig ={
 }
 const reducers = combineReducers({
     userIdSlice,
+    IdReplySlice,
 });
 const persistedReducer = persistReducer(persistConfig,reducers)
 

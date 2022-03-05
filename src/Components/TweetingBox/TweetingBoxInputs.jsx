@@ -1,16 +1,18 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
-function TweetingBoxInputs()
+function TweetingBoxInputs({tweet,Reply,imageTweet,ReplyTweeting,handleOnChange,heightTextarea,setHightTextarea})
 {
+    const {t}= useTranslation();
     return(
         <>
             {/* textArea of Tweeting Box */}
             <textarea 
-            value={tweet} 
-            style={{height:`${tweet? heightTextarea:'50'}px`}}
-            onChange={(e)=>setTweet(e.target.value)} 
+            value={ReplyTweeting?Reply:tweet} 
+            style={{height:`${tweet || Reply? heightTextarea:'50'}px`}}
+            onChange={(e)=>handleOnChange(e)} 
             onKeyUp={(e)=>setHightTextarea(e.target.scrollHeight)}
-            placeholder="what's happening?"
+            placeholder={t("what's happening?")}
             />
 
             {/* Images of Tweets */}

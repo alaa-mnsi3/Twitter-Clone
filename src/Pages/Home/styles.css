@@ -1,13 +1,21 @@
 main
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     padding: 0 4.5%;
 }
 
+@media only screen and (max-width:950px) 
+{
+    main
+    {
+        grid-template-columns: 1fr 3fr;
+    }
+}
 @media only screen and (max-width:520px) 
 {
     main
     {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }

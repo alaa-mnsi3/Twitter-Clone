@@ -12,7 +12,7 @@ function Home()
 {
   // the Logic Part in Home.jsx
   const {userInfo}=HomeContainer()
-
+  console.log(userInfo)
   return (
       <main>
 

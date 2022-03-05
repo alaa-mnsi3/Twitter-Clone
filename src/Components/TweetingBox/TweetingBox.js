@@ -1,10 +1,12 @@
 import React from 'react'
 import TweetingBoxFooter from './TweetingBoxFooter';
 import TweetingBoxInputs from './TweetingBoxInputs';
+import TweetingBoxContainer from './TweetingBoxContainer';
 
-function TweetingBox({userInfo,ReplyTweeting=false}) 
+function TweetingBox({userInfo,tweetInfo,ReplyTweeting=false}) 
 {
-
+  console.log(userInfo)
+  const {handleImagesTweeting,setEmojiPicker,emojiPicker,Reply,handleOnChange,onEmojiClick,tweet,imageTweet,onReply,onTweet,heightTextarea,setHightTextarea}= TweetingBoxContainer(userInfo,ReplyTweeting)
   return (
       <div className={`${ReplyTweeting? 'TweetingContainer ReplyContainer':'TweetingContainer'}`}>
         <form>
@@ -14,10 +16,25 @@ function TweetingBox({userInfo,ReplyTweeting=false})
 
             <div className="TweetingFormWriting">
               {/* Inputs of Tweeting Box */}
-              <TweetingBoxInputs/>
+              <TweetingBoxInputs tweet={tweet} ReplyTweeting={ReplyTweeting}
+              Reply={Reply}
+              imageTweet={imageTweet}
+              handleOnChange={(e)=>handleOnChange(e)}
+              heightTextarea={heightTextarea}
+              setHightTextarea={setHightTextarea}/>
 
               {/* Footer Of Tweeting Box */}
-              <TweetingBoxFooter userInfo={userInfo} ReplyTweeting={ReplyTweeting}/>
+              <TweetingBoxFooter ReplyTweeting={ReplyTweeting}
+                handleImagesTweeting={handleImagesTweeting}
+                setEmojiPicker={setEmojiPicker}
+                emojiPicker={emojiPicker}
+                onEmojiClick={onEmojiClick}
+                tweet={tweet}
+                Reply={Reply}
+                imageTweet={imageTweet}
+                onReply={onReply}
+                onTweet={onTweet}
+              />
             </div>
           </div>
         </form>

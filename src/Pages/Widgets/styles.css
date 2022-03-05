@@ -1,7 +1,73 @@
 .widgetsSection
 {
     flex:.3;
-    border-inline-start: 1px solid rgba(0,0,0,0.1);;
+    border-inline-start: 1px solid rgba(0,0,0,0.1);
+    padding:1.5rem;
+    max-width: 350px;
+    padding-top: 4px;
+}
+.searchWrapper
+{
+    position: relative;
+}
+.searchWrapper > form
+{
+    border-radius: 60px;
+    padding:.5rem 1rem;
+    background-color:rgba(0,0,0,0.1);
+    display:flex;
+    align-items:center
+}
+.SearchIconBtn
+{
+    fill :rgba(0,0,0,0.3);
+}
+.searchWrapper > form > input
+{
+    background-color:transparent;
+    margin-inline-start: 10px;
+    border:none;
+    outline:none
+}
+.search__Result
+{
+    position:absolute;
+    background-color:#fff;
+    width:100%;
+    min-height:75px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius:10px;
+    z-index: 1;
+    top:100%;
+}
+.search__Result__Wrapper
+{
+    padding:1rem;
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+    background-color:transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: background-color 300ms ease-in-out;
+}
+.search__Result__Wrapper:hover
+{
+    background-color:rgba(0,0,0,0.1);
+}
+.search__Result__Wrapper > img
+{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit: cover;
+    margin-inline-end: .5rem;
+}
+.search__Result__Wrapper > h3
+{
+    font:600 .84rem sans-serif;
+    text-transform:capitalize;
 }
 @media only screen and (max-width:950px) {
     .widgetsSection
