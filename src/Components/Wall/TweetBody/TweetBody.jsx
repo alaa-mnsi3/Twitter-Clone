@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import TweetTime from './TweetTime'
 import {BsFillPatchCheckFill} from "react-icons/bs"
 import SwiperComp from '../../SwiperComponent/SwiperComp';
@@ -6,6 +6,7 @@ import SwiperComp from '../../SwiperComponent/SwiperComp';
 // contents of Tweeting
 function TweetBody({username,imageTweet,tweet,time}) 
 {
+    const Images= useMemo(()=> imageTweet,[imageTweet])
     return (
         <>
             {/* userName and time that tweet is published */}
@@ -26,9 +27,9 @@ function TweetBody({username,imageTweet,tweet,time})
 
             {/* The Image is Published */}
             {
-                imageTweet?.length ?
+                Images?.length ?
                 <div className="Wall__Image__Wrapper">
-                    <SwiperComp dataSwiping={imageTweet}/>
+                    <SwiperComp dataSwiping={Images}/>
                 </div>
                 :
                 null
@@ -37,4 +38,4 @@ function TweetBody({username,imageTweet,tweet,time})
   )
 }
 
-export default TweetBody
+export default React.memo(TweetBody)

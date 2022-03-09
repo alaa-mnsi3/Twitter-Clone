@@ -15,15 +15,22 @@ i18n
   .use(HttpApi)
   .init({
     supportedLngs:["en","ar"],
-    // fallbackLng: "en",
+    fallbackLng: "en",
     detection:{
       order: ['cookie','htmlTag','path', 'subdomain'],
       caches: ['cookie'],
     },
     backend:{
-      loadPath: '/locales/{{lng}}/translation.json',
+      loadPath: '/assests/locales/{{lng}}/translation.json',
     },
-    react:{ useSuspense : false },
+    react: {
+      bindI18n: 'languageChanged',
+      bindI18nStore: '',
+      transEmptyNodeValue: '',
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
+      useSuspense: true,
+    }
   });
 
   const loadingMarkup = (

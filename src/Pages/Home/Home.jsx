@@ -1,18 +1,16 @@
 import React from 'react'
 import './styles.css'
 import HomeContainer from './HomeContainer'
-import {Route, Routes } from 'react-router-dom'
 import Feed from '../Feed/FeedView'
 import SlideBarView from '../SlideBar/SlideBarView'
 import Widgets from '../Widgets/Widgets'
 import TweetDisc from '../../Components/TweetDisc/TweetDisc'
-import Profile from '../Profile/Profile'
 
-function Home() 
+function Home({feed,discTweet}) 
 {
   // the Logic Part in Home.jsx
   const {userInfo}=HomeContainer()
-  console.log(userInfo)
+
   return (
       <main>
 
@@ -20,11 +18,8 @@ function Home()
         <SlideBarView userInfo={userInfo}/>
 
         {/* the second part */}
-        <Routes>
-          <Route path='/Home' element={<Feed userInfo={userInfo}/>}/>
-          <Route path='/Profile' element={<Profile userInfo={userInfo}/>}/>
-          <Route path='/tweets/:id' element={<TweetDisc userInfo={userInfo}/>}/>
-        </Routes>
+        {feed && <Feed userInfo={userInfo}/>}
+        {discTweet && <TweetDisc userInfo={userInfo}/>}
 
         {/* Widgets */}
         <Widgets/>

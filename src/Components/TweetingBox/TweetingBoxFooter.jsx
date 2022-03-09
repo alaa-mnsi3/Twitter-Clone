@@ -3,9 +3,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faFaceSmile} from "@fortawesome/free-regular-svg-icons"
 import Picker from 'emoji-picker-react';
 
-function TweetingBoxFooter({handleImagesTweeting,Reply,handleImagesReplying,setEmojiPicker,emojiPicker,onEmojiClick,tweet,imageTweet,onReply,onTweet,ReplyTweeting}) 
+function TweetingBoxFooter({handleImagesTweeting,Reply,setEmojiPicker,emojiPicker,onEmojiClick,tweet,imageTweet,onReply,onTweet,ReplyTweeting}) 
 {
-    console.log(ReplyTweeting)
     return(
         <div className="TweetingFormWritingFooter">
             <div>
@@ -57,4 +56,4 @@ function TweetingBoxFooter({handleImagesTweeting,Reply,handleImagesReplying,setE
     )
 }
 
-export default TweetingBoxFooter
+export default React.memo(TweetingBoxFooter)

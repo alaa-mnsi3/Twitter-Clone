@@ -4,7 +4,6 @@ import SignUpWithGoogleContainer from './SignUpWithGoogleContainer.jsx'
 
 function SignUpWithGoogleView({user}) 
 {
-    console.log(user)
     const {setDateBirth,setLanguage,handleSubmitSignUp,dateBirth} = SignUpWithGoogleContainer(user)
     return (
         <SignUpGoogleContainer>

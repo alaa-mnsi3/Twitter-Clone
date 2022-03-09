@@ -3,9 +3,8 @@ import TweetingBoxFooter from './TweetingBoxFooter';
 import TweetingBoxInputs from './TweetingBoxInputs';
 import TweetingBoxContainer from './TweetingBoxContainer';
 
-function TweetingBox({userInfo,tweetInfo,ReplyTweeting=false}) 
+function TweetingBox({userInfo,ReplyTweeting=false}) 
 {
-  console.log(userInfo)
   const {handleImagesTweeting,setEmojiPicker,emojiPicker,Reply,handleOnChange,onEmojiClick,tweet,imageTweet,onReply,onTweet,heightTextarea,setHightTextarea}= TweetingBoxContainer(userInfo,ReplyTweeting)
   return (
       <div className={`${ReplyTweeting? 'TweetingContainer ReplyContainer':'TweetingContainer'}`}>

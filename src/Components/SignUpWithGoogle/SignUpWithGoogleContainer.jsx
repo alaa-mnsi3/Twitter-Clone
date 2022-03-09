@@ -32,10 +32,9 @@ function SignUpWithGoogleContainer(user)
             const username=user.username;
             const userEmail=user.userEmail;
             const userPhoto=user.userPhoto;
+            i18next.changeLanguage(Language.Lang);
             const docRef = await addDoc(collection(db, "users"),{username,userPhoto,userEmail,dateBirth,Language,createdAccountAt:serverTimestamp()});
             const id= docRef.id;
-            i18next.changeLanguage(Language.Lang);
-            console.log(id)
             dispatch(getIdAction(id));
         }
          catch (err) 

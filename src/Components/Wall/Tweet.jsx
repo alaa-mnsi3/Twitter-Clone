@@ -41,7 +41,7 @@ function Tweet({tweetInfo,userInfo,clickReplyId,handleReplyTweet,Replies=false})
                     Replies? 
                     null
                     :
-                    <TweetFooter handleReplyTweet={handleReplyTweet} tweet={tweetInfo?.data()} 
+                    <TweetFooter handleReplyTweet={handleReplyTweet} userName={userInfo?.username} tweet={tweetInfo?.data()} 
                     handleLikedTweet={handleLikedTweet} handleRemoveLiked={handleRemoveLiked} Id={tweetInfo?.id}/>
                 }
                 
@@ -52,4 +52,4 @@ function Tweet({tweetInfo,userInfo,clickReplyId,handleReplyTweet,Replies=false})
     )
 }
 
-export default Tweet
+export default React.memo(Tweet)

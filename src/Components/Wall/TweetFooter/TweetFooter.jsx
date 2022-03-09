@@ -2,7 +2,7 @@ import React from 'react'
 import LikedComp from './LikedComp'
 import ReplyComp from './ReplyComp'
 
-function TweetFooter({tweet,handleReplyTweet,handleLikedTweet,handleRemoveLiked,Id}) 
+function TweetFooter({tweet,handleReplyTweet,userName,handleLikedTweet,handleRemoveLiked,Id}) 
 {
   return (
     <div className="footer__Tweeting">
@@ -14,7 +14,7 @@ function TweetFooter({tweet,handleReplyTweet,handleLikedTweet,handleRemoveLiked,
         handleLikedTweet={handleLikedTweet} 
         handleRemoveLiked={handleRemoveLiked}
         Liked={tweet?.liked}
-        username={tweet?.username}
+        username={userName}
         Id={Id}
         />
 
