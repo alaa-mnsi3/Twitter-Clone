@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Twitter-Clone/static/css/main.1849f01f.css",
-    "main.js": "/Twitter-Clone/static/js/main.41e7aed2.js",
-    "static/media/background.png": "/Twitter-Clone/static/media/background.ee316e0d2358e67d5ee2.png",
-    "static/media/google-color.svg": "/Twitter-Clone/static/media/google-color.ea7174418615bb2b0b56a1ec41aa511d.svg",
-    "index.html": "/Twitter-Clone/index.html",
-    "static/media/getFetch.cjs": "/Twitter-Clone/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.1849f01f.css.map": "/Twitter-Clone/static/css/main.1849f01f.css.map",
-    "main.41e7aed2.js.map": "/Twitter-Clone/static/js/main.41e7aed2.js.map"
+    "main.css": "/TwitterClone/static/css/main.08ef49f3.css",
+    "main.js": "/TwitterClone/static/js/main.ee3ed3b0.js",
+    "static/media/background.png": "/TwitterClone/static/media/background.ee316e0d2358e67d5ee2.png",
+    "static/media/google-color.svg": "/TwitterClone/static/media/google-color.ea7174418615bb2b0b56a1ec41aa511d.svg",
+    "index.html": "/TwitterClone/index.html",
+    "static/media/getFetch.cjs": "/TwitterClone/static/media/getFetch.c780682470504fffbd04.cjs",
+    "main.08ef49f3.css.map": "/TwitterClone/static/css/main.08ef49f3.css.map",
+    "main.ee3ed3b0.js.map": "/TwitterClone/static/js/main.ee3ed3b0.js.map"
   },
   "entrypoints": [
-    "static/css/main.1849f01f.css",
-    "static/js/main.41e7aed2.js"
+    "static/css/main.08ef49f3.css",
+    "static/js/main.ee3ed3b0.js"
   ]
 }
