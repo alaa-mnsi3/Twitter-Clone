@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useSelector } from 'react-redux';
 import { BrowserRouter ,Routes,Route} from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -8,22 +8,24 @@ function App()
 {
   const id=useSelector(state=>state.userIdSlice)
   return (
-    <BrowserRouter>
-      <div className="App">
-        {/* <iframe width="0px" title='music for twitter' height="0px" type="text/html" frameBorder='0' src="http://www.youtuberepeater.com/watch?v=7wtfhZwyrcc&name=Imagine+Dragons+Believer?autoplay=1#gsc.tab=0&origin=http://localhost:3000" allowFullScreen allow='acceleromete; autoplay; encrypted-media; gyroscope;'></iframe> */}
-        
-        {/* if user is founded */}
-        {id ?
-          <Routes>
-            <Route  path='/Home' element={<Home feed={true}/>}/>
-            <Route path='/tweets/:id' element={<Home discTweet={true}/>}/>
-          </Routes>
-        :
-          <Interface/>
-        }
+    <Suspense fallback={null}>
+      <BrowserRouter>
+        <div className="App">
+          {/* <iframe width="0px" title='music for twitter' height="0px" type="text/html" frameBorder='0' src="http://www.youtuberepeater.com/watch?v=7wtfhZwyrcc&name=Imagine+Dragons+Believer?autoplay=1#gsc.tab=0&origin=http://localhost:3000" allowFullScreen allow='acceleromete; autoplay; encrypted-media; gyroscope;'></iframe> */}
+          
+          {/* if user is founded */}
+          {id ?
+            <Routes>
+              <Route  path='/Home' element={<Home feed={true}/>}/>
+              <Route path='/tweets/:id' element={<Home discTweet={true}/>}/>
+            </Routes>
+          :
+            <Interface/>
+          }
 
-      </div>
-    </BrowserRouter>  
+        </div>
+      </BrowserRouter>  
+    </Suspense>
   );
 }
 

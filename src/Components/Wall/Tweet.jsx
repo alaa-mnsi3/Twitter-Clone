@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TweetingBox from '../TweetingBox/TweetingBox'
 import TweetBody from './TweetBody/TweetBody'
+import TweetDiscFooter from './TweetFooter/TweetDiscFooter'
 import TweetFooter from './TweetFooter/TweetFooter'
 import WallContainer from './WallContainer'
 
-function Tweet({tweetInfo,userInfo,clickReplyId,handleReplyTweet,Replies=false}) 
+function Tweet({tweetInfo,userInfo,clickReplyId,handleReplyTweet,Replies=false,TweetReply=false}) 
 {
     const {handleRemoveLiked,handleLikedTweet}=WallContainer(userInfo)
 
@@ -14,30 +15,25 @@ function Tweet({tweetInfo,userInfo,clickReplyId,handleReplyTweet,Replies=false})
 
             {/* Photo of userName */}
             <div className="TweetingFormContainer">
-                <img src={tweetInfo?.data().userPhoto} alt=''/>
+                <img src={tweetInfo?.data()?.userPhoto} alt=''/>
             </div>
 
             {/* Tweet */}
             <div className="wall__Tweet">
 
                 {/* TweetBody */}
-                {!Replies?
-                <Link to={`/tweets/${tweetInfo?.id}`}>
+                <Link to={`/tweets/${tweetInfo?.id}`} className={(!Replies)? "":"disabledLink"}>
                     <TweetBody
-                    tweet={tweetInfo?.data()?.tweet} username={tweetInfo?.data().username}
-                    imageTweet={tweetInfo?.data().imageTweet} time={tweetInfo?.data()?.timeStamp?.seconds * 1000}
+                    tweet={tweetInfo?.data()?.tweet} username={tweetInfo?.data()?.username}
+                    imageTweet={tweetInfo?.data()?.imageTweet} time={tweetInfo?.data()?.timeStamp?.seconds * 1000}
                     />
                 </Link>
-                :
-                    <TweetBody
-                    tweet={tweetInfo?.data()?.tweet} username={tweetInfo?.data().username}
-                    imageTweet={tweetInfo?.data().imageTweet} time={tweetInfo?.data()?.timeStamp?.seconds * 1000}
-                    />
-                }
-
+                
 
                 {/* Footer Tweeting */}
-                {
+                {TweetReply?
+                    <TweetDiscFooter tweet={tweetInfo?.data()} userInfo={userInfo}/>
+                    :
                     Replies? 
                     null
                     :
@@ -47,6 +43,7 @@ function Tweet({tweetInfo,userInfo,clickReplyId,handleReplyTweet,Replies=false})
                 
                 {/* TweetingBox for Reply */}
                 {clickReplyId === tweetInfo?.id && <TweetingBox userInfo={userInfo} tweetInfo={tweetInfo?.data()} ReplyTweeting={true}/>}
+                
             </div>
         </div>
     )

@@ -8,6 +8,8 @@ function WallContainer(userInfo)
 {
     const [TweetsWall,setTweetsWall]=useState()
     const [clickReplyId,setClickReplyId]=useState("")
+    const [likedList,setLikedList]=useState([])
+    const [showingLike,setShowingLike]=useState(false)
     const dispatch=useDispatch()
 
     // for order Tweets and listening for any changes
@@ -27,7 +29,7 @@ function WallContainer(userInfo)
       const washingtonRef = doc(db, "tweets", id);
       // Set the "capital" field of the city 'DC'
       await updateDoc(washingtonRef, {
-        liked:[...liked,userInfo.username]
+        liked:[...liked,{username:userInfo.username,userPhoto:userInfo.userPhoto}]
       });
     }
 
@@ -37,7 +39,7 @@ function WallContainer(userInfo)
       const washingtonRef = doc(db, "tweets", id);
       // Atomically remove a region from the "regions" array field.
       await updateDoc(washingtonRef, {
-        liked: arrayRemove(userInfo.username)
+        liked: arrayRemove({username:userInfo.username,userPhoto:userInfo.userPhoto})
       });
     }
 
@@ -47,7 +49,14 @@ function WallContainer(userInfo)
       setClickReplyId(Id);
       dispatch(getReplyIDAction({Id,replyCount}));
     }
-    return {handleRemoveLiked,handleLikedTweet,clickReplyId,TweetsWall,handleReplyTweet}
+
+    // for showing likes
+    const handleShowLikes=(likes)=>
+    {
+      setLikedList(likes)
+      setShowingLike(prev=>!prev)
+    }
+    return {handleRemoveLiked,handleLikedTweet,clickReplyId,TweetsWall,showingLike,likedList,handleShowLikes,handleReplyTweet}
 }
 
 export default WallContainer

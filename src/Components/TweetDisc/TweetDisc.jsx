@@ -10,14 +10,13 @@ function TweetDisc({userInfo})
   return (
     <div className="FeedContainer">
     <Tweet tweetInfo={tweetClicking} userInfo={userInfo} 
-    clickReplyId={clickReplyId} setClickReplyId={setClickReplyId}/>
+    clickReplyId={clickReplyId} setClickReplyId={setClickReplyId} TweetReply={true}/>
 
     {replies.map(reply=>(
-      <Tweet tweetInfo={reply} key={reply.id} userInfo={userInfo} Replies={true}
-      clickReplyId={clickReplyId} setClickReplyId={setClickReplyId}/>
+      <Tweet tweetInfo={reply} key={reply.id} userInfo={userInfo} Replies={true}/>
     ))}
     </div>
   )
 }
 
-export default TweetDisc
+export default React.memo(TweetDisc)

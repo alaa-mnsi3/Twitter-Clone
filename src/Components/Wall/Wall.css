@@ -22,6 +22,11 @@
     margin-inline-start: 1.5rem;
     border-bottom: none;
 }
+.disabledLink
+{
+    pointer-events: none;
+    cursor:copy;
+}
 .wallWrapper:hover
 {
     background-color: rgba(83, 100, 113,.1);
@@ -77,6 +82,11 @@
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 8px;
 }
+.swiper-wrapper
+{
+    display: flex;
+    justify-content:center
+}
 .swiper-slide 
 {
     width: 100%;
@@ -130,4 +140,62 @@
 .footer__Tweeting > div:last-of-type svg:hover
 {
     fill:#0fad71;
+}
+.LikesWrapper
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+    padding-top: 2rem;
+    min-width: 300px;
+}
+.TweetDiscFooterWrapper
+{
+    border-top: 1px solid rgba(0,0,0,.1);
+    margin-top: 1rem;
+    display: flex;
+    align-items:center;
+    padding-top: .5rem;
+}
+.TweetDiscFooterWrapper > div:first-of-type
+{
+    margin-inline-end: 2rem;
+    cursor: pointer;
+}
+.TweetDiscFooterWrapper > div > span
+{
+    font-weight: 600;
+    font-size: 1rem;
+    margin-inline-end: 5px;
+}
+.LikeListWrapper
+{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    padding-top: 0;
+}
+.LikeListWrapper > img
+{
+    border-radius: 50%;
+    width: 50px;
+    height:50px;
+    margin-inline-end: 1rem;
+}
+.LikeListWrapper > span
+{
+    font-Weight:600;
+    font-size: 1rem;
+}
+
+@media  only screen and (max-width:700px) 
+{
+    .footer__Tweeting
+    {
+        width:100%
+    }  
 }

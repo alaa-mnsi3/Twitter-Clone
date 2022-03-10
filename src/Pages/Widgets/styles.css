@@ -1,7 +1,6 @@
 .widgetsSection
 {
     flex:.3;
-    border-inline-start: 1px solid rgba(0,0,0,0.1);
     padding:1.5rem;
     max-width: 350px;
     padding-top: 4px;

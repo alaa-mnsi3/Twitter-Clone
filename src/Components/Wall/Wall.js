@@ -13,8 +13,9 @@ function Wall({userInfo})
       {/* Tweet */}
       {TweetsWall?.map(tweet => 
         (
-          <Tweet key={tweet.id} tweetInfo={tweet} 
-          userInfo={userInfo} handleReplyTweet={handleReplyTweet} clickReplyId={clickReplyId}/>
+          <Tweet key={tweet.id} tweetInfo={tweet}
+          userInfo={userInfo} handleReplyTweet={handleReplyTweet}
+          clickReplyId={clickReplyId}/>
         )
       )}
     </div>

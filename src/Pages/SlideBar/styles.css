@@ -234,18 +234,21 @@
         margin: 0;
     }
     .slideBarProfile > img {
-        height: 31px;
-        width: 31px;
+        height: 55px;
+        width: 55px;
     }
     .slideBarProfile
     {
         margin-bottom: .5rem;
         margin-top: 1rem;
+        position:absolute;
+        inset-inline: 17px;
+        top: 60%;
     }
     .signOutBtnContainer
     {
         clip-path: polygon(0 100%, 0 16%, 42% 15%, 54% 5%, 69% 15%, 100% 17%, 100% 100%);
-        top: 45px;
-
+        top: 70%;
+        inset-inline: 0;
     }
 }

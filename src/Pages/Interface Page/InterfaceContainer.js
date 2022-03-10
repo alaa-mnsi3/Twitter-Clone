@@ -6,6 +6,7 @@ import { collection,getDocs } from "firebase/firestore";
 import i18next from 'i18next';
 import { getIdAction } from '../../store/Slices/getUserIdSlice';
 import {useDispatch} from 'react-redux'
+import {useTranslation} from 'react-i18next'
 
 function InterfaceContainer() 
 {
@@ -13,6 +14,7 @@ function InterfaceContainer()
     const [completeSignUp,setCompleteSignUp]=useState(false)
     const Navigate=useNavigate()
     const dispatch=useDispatch();
+    const {i18n} = useTranslation()
 
     // Sign Up with Google
     const handleAuthGoogle=()=>
@@ -35,7 +37,7 @@ function InterfaceContainer()
                 {
                     const id=doc.id
                     dispatch(getIdAction(id))
-                    i18next.changeLanguage(doc.data().Language.Lang)
+                    i18n.changeLanguage(doc.data().Language.Lang)
                     Navigate('/Home')
                 }
             });
