@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Twitter-Clone/static/css/main.e397fa3f.css",
-    "main.js": "/Twitter-Clone/static/js/main.e314dbc0.js",
+    "main.css": "/Twitter-Clone/static/css/main.1d85feb0.css",
+    "main.js": "/Twitter-Clone/static/js/main.e23050aa.js",
     "static/media/background.png": "/Twitter-Clone/static/media/background.ee316e0d2358e67d5ee2.png",
     "static/media/google-color.svg": "/Twitter-Clone/static/media/google-color.ea7174418615bb2b0b56a1ec41aa511d.svg",
     "index.html": "/Twitter-Clone/index.html",
     "static/media/getFetch.cjs": "/Twitter-Clone/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.e397fa3f.css.map": "/Twitter-Clone/static/css/main.e397fa3f.css.map",
-    "main.e314dbc0.js.map": "/Twitter-Clone/static/js/main.e314dbc0.js.map"
+    "main.1d85feb0.css.map": "/Twitter-Clone/static/css/main.1d85feb0.css.map",
+    "main.e23050aa.js.map": "/Twitter-Clone/static/js/main.e23050aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.e397fa3f.css",
-    "static/js/main.e314dbc0.js"
+    "static/css/main.1d85feb0.css",
+    "static/js/main.e23050aa.js"
   ]
 }
