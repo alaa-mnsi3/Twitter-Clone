@@ -7,7 +7,7 @@ import Interface from "./Pages/Interface Page/InterfaceView";
 function App() 
 {
   const id=useSelector(state=>state.userIdSlice)
-
+  localStorage.clear()
   return (
     <Suspense fallback={null}>
       <BrowserRouter>
