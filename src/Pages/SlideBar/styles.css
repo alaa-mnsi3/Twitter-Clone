@@ -243,12 +243,13 @@
         margin-top: 1rem;
         position:absolute;
         inset-inline: 17px;
-        top: 78vh;
+        top: 92vh;
+        z-index: 100000;
     }
     .signOutBtnContainer
     {
         clip-path: polygon(0 100%, 0 16%, 42% 15%, 54% 5%, 69% 15%, 100% 17%, 100% 100%);
-        top: 70%;
+        top: 76vh;
         inset-inline: 0;
     }
 }
