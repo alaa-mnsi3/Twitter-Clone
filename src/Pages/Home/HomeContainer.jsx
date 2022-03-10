@@ -1,5 +1,4 @@
 import {useEffect,useState} from 'react'
-import {useSelector} from 'react-redux'
 import { collection,getDocs } from "firebase/firestore"; 
 import {db} from "../../Firebase"
 import './styles.css'
@@ -7,7 +6,9 @@ import { useTranslation } from "react-i18next";
 
 function HomeContainer() 
 {
-    const id=useSelector(state => state.userIdSlice)
+    const localId=localStorage.getItem("persist:root")
+    const id=JSON.parse(localId).userIdSlice.slice(1,-1)
+
     const [userInfo,setUserInfo]=useState(null)
     const {t} = useTranslation();
 
