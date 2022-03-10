@@ -19,7 +19,7 @@ function SlideBarContainer() {
         signOut(auth).then(() => 
         {
             dispatch(getIdAction(""))
-            Navigate('/')
+            Navigate('/Twitter-Clone')
         }).catch((error) => {
           // An error happened.
         });

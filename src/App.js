@@ -20,7 +20,9 @@ function App()
               <Route path='/tweets/:id' element={<Home discTweet={true}/>}/>
             </Routes>
           :
-            <Interface/>
+            <Routes>
+              <Route  path='/Twitter-Clone' element={<Interface/>}/>
+            </Routes>
           }
 
         </div>
