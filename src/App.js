@@ -14,17 +14,19 @@ function App()
           <iframe width="0px" title='music for twitter' height="0px" type="text/html" frameBorder='0' src="http://www.youtuberepeater.com/watch?v=7wtfhZwyrcc&name=Imagine+Dragons+Believer?autoplay=1#gsc.tab=0&origin=http://localhost:3000" allowFullScreen allow='acceleromete; autoplay; encrypted-media; gyroscope;'></iframe>
           
           {/* if user is founded */}
+          <Routes>
           {id?
-            <Routes>
               <Route  path='/Home' element={<Home feed={true}/>}/>
-              <Route path='/tweets/:id' element={<Home discTweet={true}/>}/>
-            </Routes>
           :
-            <Routes>
               <Route  path='/Twitter-Clone' element={<Interface/>}/>
-            </Routes>
           }
+            <Route path='/tweets/:id' element={<Home discTweet={true}/>}/>
 
+          </Routes>
+
+
+          <Routes>
+          </Routes>
         </div>
       </BrowserRouter>  
     </Suspense>

@@ -3,7 +3,6 @@ import { signInWithPopup } from "firebase/auth";
 import {Googleprovider,auth,db} from "../../Firebase"
 import {useNavigate} from "react-router-dom"
 import { collection,getDocs } from "firebase/firestore"; 
-import i18next from 'i18next';
 import { getIdAction } from '../../store/Slices/getUserIdSlice';
 import {useDispatch} from 'react-redux'
 import {useTranslation} from 'react-i18next'
