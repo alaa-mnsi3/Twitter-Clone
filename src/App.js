@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense,useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { BrowserRouter ,Routes,Route} from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -7,7 +7,10 @@ import Interface from "./Pages/Interface Page/InterfaceView";
 function App() 
 {
   const id=useSelector(state=>state.userIdSlice)
-  localStorage.clear()
+  // to delete id 
+  // is optional because of deploing to github
+  useLayoutEffect(()=>{localStorage.clear()},[])
+
   return (
     <Suspense fallback={null}>
       <BrowserRouter>
