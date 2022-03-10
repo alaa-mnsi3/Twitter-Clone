@@ -3,13 +3,13 @@ import { GoogleAuthProvider ,getAuth} from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhhb2pP2uJLY_3iCTVjxuub6kIo9bijy0",
-  authDomain: "test2-81cab.firebaseapp.com",
-  projectId: "test2-81cab",
-  storageBucket: "test2-81cab.appspot.com",
-  messagingSenderId: "1052041093269",
-  appId: "1:1052041093269:web:96dce4f800971cc966fb9c",
-  measurementId: "G-Y6TLE09MKB"
+  apiKey: "AIzaSyDm5LgM30u1LnvGcb5k9DZ7FqR1X3qboas",
+  authDomain: "twitter-clone-42fb0.firebaseapp.com",
+  projectId: "twitter-clone-42fb0",
+  storageBucket: "twitter-clone-42fb0.appspot.com",
+  messagingSenderId: "657833307553",
+  appId: "1:657833307553:web:a5a60a7255b52b721eafe0",
+  measurementId: "G-M1T3EDVEY6"
 };
 
 // Initialize Firebase
